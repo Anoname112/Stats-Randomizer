@@ -75,23 +75,25 @@
 					bst = parseInt(bst);
 					padding = parseInt(padding);
 					
-					var totalValue = 0;
 					var randomValues = [];
-					var firstSecond = Math.random() * 2;
+					var totalValue = 0;
 					var sortedStats = [];
+					var totalStats = 0;
+					
+					var firstSecond = Math.random() * 2;
 					var stats = [];
+					var statsCount = 6;
 					var texts = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
 					
 					// Generate random values
-					for (var i = 0; i < 6; i++) {
+					for (var i = 0; i < statsCount; i++) {
 						var random = Math.floor(Math.random() * 100) + 1 + padding;
 						totalValue += random;
 						randomValues.push(random);
 					}
 					
 					// Generate stats and apply rounding
-					var totalStats = 0;
-					for (var i = 0; i < 6; i++) {
+					for (var i = 0; i < statsCount; i++) {
 						var stat = Math.floor((randomValues[i] / totalValue * bst) / rounding) * rounding;
 						totalStats += stat;
 						sortedStats.push(stat);
@@ -100,7 +102,7 @@
 					// Find max index and assign the total difference
 					var diff = bst - totalStats;
 					var max = 0;
-					for (var i = 1; i < 6; i++) if (sortedStats[i] > sortedStats[max]) max = i;		// Remainder will be assigned to the biggest stats
+					for (var i = 1; i < statsCount; i++) if (sortedStats[i] > sortedStats[max]) max = i;		// Remainder will be assigned to the biggest stats
 					sortedStats[max] += diff;
 					
 					// Sort stats
@@ -142,8 +144,8 @@
 					}
 					
 					// Assign other stats
-					while (assignedIndex.length < 6) {
-						var index = Math.floor(Math.random() * 6);
+					while (assignedIndex.length < statsCount) {
+						var index = Math.floor(Math.random() * statsCount);
 						if (!assignedIndex.includes(index)) {
 							stats[index] = sortedStats[sortedStats.length - 1];
 							sortedStats.pop();
@@ -152,10 +154,10 @@
 					}
 					
 					var total = 0;
-					for (var i = 0; i < 6; i++) total += stats[i];
+					for (var i = 0; i < statsCount; i++) total += stats[i];
 					
 					var output = '<table class="data">';
-					for (var i = 0; i < 6; i++) {
+					for (var i = 0; i < statsCount; i++) {
 						output += '<tr><td class="text">' + texts[i] + ':</td><td class="number">' + stats[i] + '</td><td><div class="bar" style="width: ' + stats[i] + 'px; height: 10px;"></div></td></tr>'
 					}
 					output += '<tr><td class="text">BST:</td><td class="number">' + total + '</td><td></td></tr></table>';
@@ -166,6 +168,8 @@
 			}
 			
 			window.onload = function () {
+				document.getElementById('bst').value = 530;
+				document.getElementById('padding').value = 10;
 				document.getElementById('bst').focus();
 				inputChanged();
 			}
@@ -176,11 +180,11 @@
 			<table>
 				<tr>
 					<td>Base Stats Total: </td>
-					<td><input type="text" id="bst" oninput="inputChanged();" value="530"></td>
+					<td><input type="text" id="bst" oninput="inputChanged();"></td>
 				</tr>
 				<tr>
 					<td>Stats Padding: </td>
-					<td><input type="text" id="padding" oninput="inputChanged();" value="10"></td>
+					<td><input type="text" id="padding" oninput="inputChanged();"></td>
 				</tr>
 				<tr>
 					<td>Rounding: </td>
