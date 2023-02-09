@@ -1,0 +1,56 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+}
+
+table {
+	font-size: 13px;
+	font-family: "Tahoma";
+}
+
+.data th {
+	padding: 4px 7px 4px 5px;
+}
+
+.data td {
+	padding: 3px 7px 5px 5px;
+}
+
+.text, .number {
+	background-color: #ccc;
+}
+
+.number {
+	text-align: right;
+}
+
+.bar {
+	background-color: #3b3;
+}
+
+#left {
+	float: left;
+	margin: 5px;
+	padding: 15px;
+	border-radius: 5px;
+	width: 280px;
+	background-color: #bbb;
+}
+
+#bst, #padding {
+	width: 100px;
+}
+
+#bst, #rounding, #tendencies {
+	height: 23px;
+	padding: 0px 2px 1px 2px;
+	font-family: "Tahoma";
+	font-size: 13px;
+}
+
+#output {
+	float: left;
+	margin-top: 4px;
+	margin-bottom: 25px;
+}
