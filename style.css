@@ -9,6 +9,10 @@ table {
 	font-family: "Tahoma";
 }
 
+input[type=button]:hover {
+	cursor: pointer;
+}
+
 .data th {
 	padding: 4px 7px 4px 5px;
 }
