@@ -1,0 +1,62 @@
+$sandSerif: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
+$fontSize: 13px;
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: $fontSize;
+}
+
+table {
+	font-family: $sandSerif;
+	font-size: $fontSize;
+}
+
+input[type=button]:hover {
+	cursor: pointer;
+}
+
+.data th {
+	padding: 4px 7px 4px 5px;
+}
+
+.data td {
+	padding: 3px 7px 5px 5px;
+}
+
+.text, .number {
+	background-color: #CCCCCC;
+}
+
+.number {
+	text-align: right;
+}
+
+.bar {
+	background-color: #33BB33;
+}
+
+#left {
+	float: left;
+	margin: 5px 0 0 5px;
+	padding: 15px;
+	border-radius: 5px;
+	width: 280px;
+	background-color: #BBBBBB;
+}
+
+#bst, #padding {
+	width: 100px;
+}
+
+#bst, #rounding, #tendencies {
+	padding: 0px 2px 1px 2px;
+	height: 23px;
+	font-family: $sandSerif;
+	font-size: $fontSize;
+}
+
+#output {
+	float: left;
+	margin: 4px 0 5px 3px;
+}
