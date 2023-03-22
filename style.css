@@ -1,59 +1,59 @@
 body {
-	margin: 0;
-	padding: 0;
-	font-size: 13px;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
 }
 
 table {
-	font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
-	font-size: 13px;
+  font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
+  font-size: 13px;
 }
 
 input[type=button]:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .data th {
-	padding: 4px 7px 4px 5px;
+  padding: 4px 7px 4px 5px;
 }
 
 .data td {
-	padding: 3px 7px 5px 5px;
+  padding: 3px 7px 5px 5px;
 }
 
 .text, .number {
-	background-color: #CCCCCC;
+  background-color: #CCCCCC;
 }
 
 .number {
-	text-align: right;
+  text-align: right;
 }
 
 .bar {
-	background-color: #33BB33;
+  background-color: #33BB33;
 }
 
 #left {
-	float: left;
-	margin: 5px 0 0 5px;
-	padding: 15px;
-	border-radius: 5px;
-	width: 280px;
-	background-color: #BBBBBB;
+  float: left;
+  margin: 5px 0 0 5px;
+  padding: 15px;
+  border-radius: 5px;
+  width: 280px;
+  background-color: #BBBBBB;
 }
 
 #bst, #padding {
-	width: 100px;
+  width: 100px;
 }
 
 #bst, #rounding, #tendencies {
-	padding: 0px 2px 1px 2px;
-	height: 23px;
-	font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
-	font-size: 13px;
+  padding: 0px 2px 1px 2px;
+  height: 23px;
+  font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
+  font-size: 13px;
 }
 
 #output {
-	float: left;
-	margin: 4px 0 5px 3px;
+  float: left;
+  margin: 4px 0 5px 3px;
 }
