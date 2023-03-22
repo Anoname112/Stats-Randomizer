@@ -5,8 +5,8 @@ body {
 }
 
 table {
+	font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
 	font-size: 13px;
-	font-family: "Tahoma";
 }
 
 input[type=button]:hover {
@@ -22,7 +22,7 @@ input[type=button]:hover {
 }
 
 .text, .number {
-	background-color: #ccc;
+	background-color: #CCCCCC;
 }
 
 .number {
@@ -30,7 +30,7 @@ input[type=button]:hover {
 }
 
 .bar {
-	background-color: #3b3;
+	background-color: #33BB33;
 }
 
 #left {
@@ -39,7 +39,7 @@ input[type=button]:hover {
 	padding: 15px;
 	border-radius: 5px;
 	width: 280px;
-	background-color: #bbb;
+	background-color: #BBBBBB;
 }
 
 #bst, #padding {
@@ -47,9 +47,9 @@ input[type=button]:hover {
 }
 
 #bst, #rounding, #tendencies {
-	height: 23px;
 	padding: 0px 2px 1px 2px;
-	font-family: "Tahoma";
+	height: 23px;
+	font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
 	font-size: 13px;
 }
 
