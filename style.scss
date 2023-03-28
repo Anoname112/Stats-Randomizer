@@ -1,4 +1,4 @@
-$sandSerif: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
+$sansSerif: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
 $fontSize: 13px;
 
 body {
@@ -8,7 +8,7 @@ body {
 }
 
 table {
-	font-family: $sandSerif;
+	font-family: $sansSerif;
 	font-size: $fontSize;
 }
 
@@ -52,7 +52,7 @@ input[type=button]:hover {
 #bst, #rounding, #tendencies {
 	padding: 0px 2px 1px 2px;
 	height: 23px;
-	font-family: $sandSerif;
+	font-family: $sansSerif;
 	font-size: $fontSize;
 }
 
