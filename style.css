@@ -5,7 +5,7 @@ body {
 }
 
 table {
-  font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
+  font-family: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
   font-size: 13px;
 }
 
@@ -49,7 +49,7 @@ input[type=button]:hover {
 #bst, #rounding, #tendencies {
   padding: 0px 2px 1px 2px;
   height: 23px;
-  font-family: "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
+  font-family: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
   font-size: 13px;
 }
 
