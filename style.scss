@@ -1,5 +1,6 @@
 $sansSerif: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
 $fontSize: 13px;
+$infoColor: #EEEEEE;
 
 body {
 	margin: 0;
@@ -34,6 +35,15 @@ input[type=button]:hover {
 
 .bar {
 	background-color: #33BB33;
+}
+
+.info {
+	margin: 1px 2px 4px 2px;
+	padding: 1px 5px 2px 5px;
+	border: 1px solid $infoColor;
+	border-radius: 10px;
+	color: $infoColor;
+	font-size: $fontSize - 3;
 }
 
 #left {

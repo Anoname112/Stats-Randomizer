@@ -1,3 +1,10 @@
+window.onload = function () {
+	document.getElementById('bst').value = 530;
+	document.getElementById('padding').value = 10;
+	document.getElementById('bst').focus();
+	inputChanged();
+}
+
 function isNumeric (value) {
 	return /^\d+$/.test(value);
 }
@@ -102,11 +109,4 @@ function inputChanged (sender) {
 		document.getElementById('output').innerHTML = output;
 	}
 	else document.getElementById('output').innerHTML = "";
-}
-
-window.onload = function () {
-	document.getElementById('bst').value = 530;
-	document.getElementById('padding').value = 10;
-	document.getElementById('bst').focus();
-	inputChanged();
 }
