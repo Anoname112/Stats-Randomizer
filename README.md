@@ -1,5 +1,5 @@
 # Stats-Randomizer
-Pokemon base stats randomizer to help you create a fakemon
+Pokemon base stats randomizer to help you create a fakemon.
 
 Live Demo: https://anoname112.github.io/Stats-Randomizer/
 <br /><br />
