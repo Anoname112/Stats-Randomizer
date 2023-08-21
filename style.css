@@ -13,63 +13,27 @@ input[type=button]:hover {
   cursor: pointer;
 }
 
-.data th {
-  padding: 4px 7px 4px 5px;
-}
-
-.data td {
-  padding: 3px 7px 5px 5px;
-}
-
-.text, .number {
-  background-color: #CCCCCC;
-}
-
-.number {
-  text-align: right;
-}
-
-.bar {
-  background-color: #33BB33;
-}
-
-.info {
-  cursor: default;
-  position: relative;
-  margin: 1px 2px 4px 2px;
-  padding: 1px 5px 2px 5px;
-  border: 1px solid #F2F2F2;
-  border-radius: 10px;
-  color: #F2F2F2;
-  font-size: 10px;
-}
-
-.tooltip {
-  display: none;
-  position: absolute;
-  top: 130%;
-  left: 50%;
-  margin-left: -50px;
-  padding: 2px 3px 4px 3px;
-  border-radius: 5px;
-  width: 100px;
-  background-color: #444444;
-  text-align: center;
-  opacity: 0;
-}
-
-.info:hover .tooltip {
-  display: block;
-  opacity: 0.9;
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
 }
 
 #left {
   float: left;
-  margin: 5px 0 0 5px;
+  border-radius: 4px;
+  background-color: #DADADA;
   padding: 15px;
-  border-radius: 5px;
   width: 280px;
-  background-color: #BBBBBB;
+}
+
+#output, #adjuster {
+  float: left;
+  border-radius: 4px;
+  background-color: #DADADA;
+  padding: 15px;
 }
 
 #bst, #padding {
@@ -83,7 +47,54 @@ input[type=button]:hover {
   font-size: 13px;
 }
 
-#output {
-  float: left;
-  margin: 4px 0 5px 3px;
+.data th {
+  padding: 4px 7px 4px 5px;
+}
+
+.data td {
+  padding: 3px 7px 5px 5px;
+}
+
+.text, .number {
+  background-color: #F2F2F2;
+  border-radius: 4px;
+}
+
+.number {
+  text-align: right;
+}
+
+.bar {
+  background-color: #43CB43;
+  height: 10px;
+}
+
+.info {
+  cursor: default;
+  position: relative;
+  margin: 1px 2px 4px 2px;
+  padding: 1px 5px 2px 5px;
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  margin-left: -50px;
+  padding: 2px 3px 4px 3px;
+  border-radius: 4px;
+  width: 100px;
+  background-color: #444444;
+  text-align: center;
+  opacity: 0;
+}
+
+.info:hover .tooltip {
+  display: block;
+  opacity: 0.9;
 }

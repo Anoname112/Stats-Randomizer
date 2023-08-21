@@ -8,46 +8,49 @@
 		<script type="text/javascript" src="./main.js"></script>
 	</head>
 	<body>
-		<div id="left">
-			<table>
-				<tr>
-					<td>Base Stats Total: </td>
-					<td><input type="text" id="bst" oninput="inputChanged();"></td>
-				</tr>
-				<tr>
-					<td>Stats Padding: </td>
-					<td>
-						<input type="text" id="padding" oninput="inputChanged();">
-						<span class="info">?<span class="tooltip">More padding lead to more balanced stats distribution</span></span>
-					</td>
-				</tr>
-				<tr>
-					<td>Rounding: </td>
-					<td>
-						<select id="rounding" onchange="inputChanged();">
-							<option value="1">None</option>
-							<option value="5">5</option>
-							<option value="10">10</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Tendencies: </td>
-					<td>
-						<select id="tendencies" onchange="inputChanged();">
-							<option value="none">None</option>
-							<option value="atkspe">Fast Physical Attacker</option>
-							<option value="spaspe">Fast Special Attacker</option>
-							<option value="defspd">Defensive</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="button" onclick="inputChanged()" value="Randomize"></td>
-				</tr>
-			</table>
+		<div id="wrapper">
+			<div id="left">
+				<table>
+					<tr>
+						<td>Base Stats Total: </td>
+						<td><input type="text" id="bst" oninput="inputChanged();"></td>
+					</tr>
+					<tr>
+						<td>Stats Padding: </td>
+						<td>
+							<input type="text" id="padding" oninput="inputChanged();">
+							<span class="info">?<span class="tooltip">More padding lead to more balanced stats distribution</span></span>
+						</td>
+					</tr>
+					<tr>
+						<td>Rounding: </td>
+						<td>
+							<select id="rounding" onchange="inputChanged();">
+								<option value="1">None</option>
+								<option value="5">5</option>
+								<option value="10">10</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Tendencies: </td>
+						<td>
+							<select id="tendencies" onchange="inputChanged();">
+								<option value="none">None</option>
+								<option value="atkspe">Fast Physical Attacker</option>
+								<option value="spaspe">Fast Special Attacker</option>
+								<option value="defspd">Defensive</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="button" onclick="inputChanged()" value="Randomize"></td>
+					</tr>
+				</table>
+			</div>
+			<div id="output"></div>
+			<div id="adjuster"></div>
 		</div>
-		<div id="output"></div>
 	</body>
 </html>

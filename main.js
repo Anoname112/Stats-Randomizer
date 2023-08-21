@@ -1,3 +1,9 @@
+const texts = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
+const statsCount = texts.length;
+const maxBst = 1530;
+
+var stats;
+
 window.onload = function () {
 	document.getElementById('bst').value = 530;
 	document.getElementById('padding').value = 10;
@@ -9,15 +15,40 @@ function isNumeric (value) {
 	return /^\d+$/.test(value);
 }
 
+function getTotal () {
+    var total = 0;
+    for (var i = 0; i < stats.length; i++) total += stats[i];
+    return total;
+}
+
+function statChanged (sender) {
+	document.getElementById('total').innerHTML = "";
+	
+	var total = 0;
+	for (var i = 0; i < statsCount; i++) {
+		var stat = parseInt(document.getElementById('stat' + i).value);
+		document.getElementById('label' + i).innerHTML = stat;
+		total += stat;
+	}
+	
+	document.getElementById('total').innerHTML = total;
+}
+
 function inputChanged (sender) {
 	var bst = document.getElementById('bst').value;
 	var padding = document.getElementById('padding').value;
 	var rounding = parseInt(document.getElementById('rounding').value);
 	var tendencies = document.getElementById('tendencies').value;
 	
-	if (isNumeric(bst) && isNumeric(padding)) {
-		bst = parseInt(bst);
-		padding = parseInt(padding);
+	if ((isNumeric(bst) || bst.length == 0) && (isNumeric(padding) || padding.length == 0)) {
+		bst = bst.length > 0 ? parseInt(bst) : 0;
+		padding = padding.length > 0 ? parseInt(padding) : 0;
+		
+		if (bst > maxBst) {
+			document.getElementById('bst').value = maxBst;
+			inputChanged();
+			return;
+		}
 		
 		var randomValues = [];
 		var totalValue = 0;
@@ -25,9 +56,7 @@ function inputChanged (sender) {
 		var totalStats = 0;
 		
 		var firstSecond = Math.random() * 2;
-		var stats = [];
-		var statsCount = 6;
-		var texts = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
+		stats = [];
 		
 		// Generate random values
 		for (var i = 0; i < statsCount; i++) {
@@ -43,10 +72,10 @@ function inputChanged (sender) {
 			sortedStats.push(stat);
 		}
 		
-		// Find max index and assign the total difference
+		// Find biggest stat index (max) and assign the total difference to the biggest stat
 		var diff = bst - totalStats;
 		var max = 0;
-		for (var i = 1; i < statsCount; i++) if (sortedStats[i] > sortedStats[max]) max = i;		// Remainder will be assigned to the biggest stats
+		for (var i = 1; i < statsCount; i++) if (sortedStats[i] > sortedStats[max]) max = i;
 		sortedStats[max] += diff;
 		
 		// Sort stats
@@ -65,25 +94,24 @@ function inputChanged (sender) {
 		var priorityIndex = [];
 		if (firstSecond < 1) {
 			switch (tendencies) {
-				case "atkspe": priorityIndex.push(1); priorityIndex.push(5); break;
-				case "spaspe": priorityIndex.push(3); priorityIndex.push(5); break;
-				case "defspd": priorityIndex.push(2); priorityIndex.push(4); break;
+				case 'atkspe': priorityIndex.push(1); priorityIndex.push(5); break;
+				case 'spaspe': priorityIndex.push(3); priorityIndex.push(5); break;
+				case 'defspd': priorityIndex.push(2); priorityIndex.push(4); break;
 				default: break;
 			}
 		}
 		else {
 			switch (tendencies) {
-				case "atkspe": priorityIndex.push(5); priorityIndex.push(1); break;
-				case "spaspe": priorityIndex.push(5); priorityIndex.push(3); break;
-				case "defspd": priorityIndex.push(4); priorityIndex.push(2); break;
+				case 'atkspe': priorityIndex.push(5); priorityIndex.push(1); break;
+				case 'spaspe': priorityIndex.push(5); priorityIndex.push(3); break;
+				case 'defspd': priorityIndex.push(4); priorityIndex.push(2); break;
 				default: break;
 			}
 		}
 		
 		// Assign priority stats
 		for (var i = 0; i < priorityIndex.length; i++) {
-			stats[priorityIndex[i]] = sortedStats[sortedStats.length - 1];
-			sortedStats.pop();
+			stats[priorityIndex[i]] = sortedStats.pop();
 			assignedIndex.push(priorityIndex[i]);
 		}
 		
@@ -91,22 +119,47 @@ function inputChanged (sender) {
 		while (assignedIndex.length < statsCount) {
 			var index = Math.floor(Math.random() * statsCount);
 			if (!assignedIndex.includes(index)) {
-				stats[index] = sortedStats[sortedStats.length - 1];
-				sortedStats.pop();
+				stats[index] = sortedStats.pop();
 				assignedIndex.push(index);
 			}
 		}
 		
-		var total = 0;
-		for (var i = 0; i < statsCount; i++) total += stats[i];
-		
-		var output = '<table class="data">';
-		for (var i = 0; i < statsCount; i++) {
-			output += '<tr><td class="text">' + texts[i] + ':</td><td class="number">' + stats[i] + '</td><td><div class="bar" style="width: ' + stats[i] + 'px; height: 10px;"></div></td></tr>'
-		}
-		output += '<tr><td class="text">BST:</td><td class="number">' + total + '</td><td></td></tr></table>';
-		
-		document.getElementById('output').innerHTML = output;
+		updateOutput();
 	}
-	else document.getElementById('output').innerHTML = "";
+	else document.getElementById('output').innerHTML = '';
+}
+
+function updateOutput () {
+	var barStr = `<table class="data">`;
+	var rangeStr = `<table class="data">`;
+	
+	for (var i = 0; i < statsCount; i++) {
+		barStr += `<tr>
+				<td class="text">` + texts[i] + `:</td>
+				<td class="number">` + stats[i] + `</td>
+				<td><div class="bar" style="width: ` + stats[i] + `px;"></div></td>
+			</tr>`;
+		rangeStr += `<tr>
+				<td class="text">` + texts[i] + `: </td>
+				<td><input type="range" id="stat` + i + `" class="bar" oninput="statChanged();" onchange="statChanged();" min="0" max="` + maxBst + `" value="` + stats[i] + `"></td>
+				<td class="number"><span id="label` + i + `"></span></td>
+			</tr>`;
+	}
+	
+	barStr += `<tr>
+				<td class="text">BST:</td>
+				<td class="number">` + getTotal() + `</td>
+				<td></td>
+			</tr>
+		</table>`;
+	
+	rangeStr += `<tr>
+				<td class="text">Total: </td>
+				<td><span id="total"></span></td>
+			</tr>
+		</table>`;
+	
+	document.getElementById('output').innerHTML = barStr;
+	document.getElementById('adjuster').innerHTML = rangeStr
+	statChanged();
 }

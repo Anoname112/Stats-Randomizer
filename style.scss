@@ -1,8 +1,10 @@
 $sansSerif: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
-$borderRadius: 5px;
+$borderRadius: 4px;
+$backColor: #DADADA;
+$padding: 15px;
 $tooltipWidth: 100px;
 $fontSize: 13px;
-$infoColor: #F2F2F2;
+$infoColor: #FFFFFF;
 
 body {
 	margin: 0;
@@ -19,6 +21,40 @@ input[type=button]:hover {
 	cursor: pointer;
 }
 
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 10px;
+}
+
+#left {
+	float: left;
+	border-radius: $borderRadius;
+	background-color: $backColor;
+	padding: $padding;
+	width: 280px;
+}
+
+#output, #adjuster {
+	float: left;
+	border-radius: $borderRadius;
+	background-color: $backColor;
+    padding: $padding;
+}
+
+#bst, #padding {
+	width: 100px;
+}
+
+#bst, #rounding, #tendencies {
+	padding: 0px 2px 1px 2px;
+	height: 23px;
+	font-family: $sansSerif;
+	font-size: $fontSize;
+}
+
 .data th {
 	padding: 4px 7px 4px 5px;
 }
@@ -28,7 +64,8 @@ input[type=button]:hover {
 }
 
 .text, .number {
-	background-color: #CCCCCC;
+	background-color: #F2F2F2;
+	border-radius: $borderRadius;
 }
 
 .number {
@@ -36,7 +73,8 @@ input[type=button]:hover {
 }
 
 .bar {
-	background-color: #33BB33;
+	background-color: #43CB43;
+	height: 10px;
 }
 
 .info {
@@ -67,29 +105,4 @@ input[type=button]:hover {
 .info:hover .tooltip {
 	display: block;
 	opacity: 0.9;
-}
-
-#left {
-	float: left;
-	margin: 5px 0 0 5px;
-	padding: 15px;
-	border-radius: $borderRadius;
-	width: 280px;
-	background-color: #BBBBBB;
-}
-
-#bst, #padding {
-	width: 100px;
-}
-
-#bst, #rounding, #tendencies {
-	padding: 0px 2px 1px 2px;
-	height: 23px;
-	font-family: $sansSerif;
-	font-size: $fontSize;
-}
-
-#output {
-	float: left;
-	margin: 4px 0 5px 3px;
 }
