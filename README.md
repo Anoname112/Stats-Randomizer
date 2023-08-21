@@ -6,9 +6,11 @@ texts = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 statsCount = texts.length;
 inputChanged();
 ```
-#### Live Demo
-https://anoname112.github.io/Stats-Randomizer/
-#### Screenshot
+<br />
+Live Demo: https://anoname112.github.io/Stats-Randomizer/
+<br /><br />
+Screenshot:
+<br />
 <a href="https://anoname112.github.io/Stats-Randomizer/">
    <img src="https://raw.githubusercontent.com/Anoname112/Stats-Randomizer/main/ss.png" title="Stats Randomizer">
 </a>
