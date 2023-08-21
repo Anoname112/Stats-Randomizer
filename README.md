@@ -1,5 +1,11 @@
 # Stats-Randomizer
 Stats randomizer, mainly used for creating Pokemon base stats. Can be used to assist in Fakemon creation.
+In order to use it for different stats format, variable editing from the web console is needed. For example:
+```javascript
+texts = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+statsCount = texts.length;
+inputChanged();
+```
 
 Live Demo: https://anoname112.github.io/Stats-Randomizer/
 <br /><br />
