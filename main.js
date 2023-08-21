@@ -160,6 +160,6 @@ function updateResult () {
 		</table>`;
 	
 	document.getElementById('output').innerHTML = outputStr;
-	document.getElementById('adjuster').innerHTML = rangeStr
+	document.getElementById('adjuster').innerHTML = rangeStr;
 	statChanged();
 }
