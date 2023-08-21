@@ -152,6 +152,7 @@ function updateResult () {
 				<td></td>
 			</tr>
 		</table>`;
+	
 	rangeStr += `<tr>
 				<td class="text">Total: </td>
 				<td><span id="total"></span></td>
