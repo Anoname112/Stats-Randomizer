@@ -130,36 +130,36 @@ function inputChanged (sender) {
 }
 
 function updateResult () {
-	var barStr = `<table class="data">`;
+	var outputStr = `<table class="data">`;
 	var rangeStr = `<table class="data">`;
 	
 	for (var i = 0; i < statsCount; i++) {
-		barStr += `<tr>
-				<td class="text">` + texts[i] + `:</td>
+		outputStr += `<tr>
+				<td class="text">` + texts[i] + `</td>
 				<td class="number">` + stats[i] + `</td>
 				<td><div class="bar" style="width: ` + (stats[i] * 0.55) + `px;"></div></td>
 			</tr>`;
 		rangeStr += `<tr>
-				<td class="text">` + texts[i] + `: </td>
+				<td class="text">` + texts[i] + `</td>
 				<td><input type="range" id="stat` + i + `" class="bar range" oninput="statChanged();" onchange="statChanged();" min="0" max="` + maxBst + `" value="` + stats[i] + `"></td>
 				<td class="number"><span id="label` + i + `"></span></td>
 			</tr>`;
 	}
 	
-	barStr += `<tr>
-				<td class="text">BST:</td>
+	outputStr += `<tr>
+				<td class="text">BST</td>
 				<td class="number">` + getTotal() + `</td>
 				<td></td>
 			</tr>
 		</table>`;
 	
 	rangeStr += `<tr>
-				<td class="text">Total: </td>
+				<td class="text">BST</td>
 				<td><span id="total"></span></td>
 			</tr>
 		</table>`;
 	
-	document.getElementById('output').innerHTML = barStr;
+	document.getElementById('output').innerHTML = outputStr;
 	document.getElementById('adjuster').innerHTML = rangeStr
 	statChanged();
 }
