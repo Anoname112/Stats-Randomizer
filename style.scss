@@ -21,6 +21,10 @@ input[type=button]:hover {
 	cursor: pointer;
 }
 
+input[type=range] {
+	width: 250px;
+}
+
 #wrapper {
 	display: flex;
 	flex-direction: column;

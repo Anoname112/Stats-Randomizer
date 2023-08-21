@@ -124,12 +124,12 @@ function inputChanged (sender) {
 			}
 		}
 		
-		updateOutput();
+		updateResult();
 	}
 	else document.getElementById('output').innerHTML = '';
 }
 
-function updateOutput () {
+function updateResult () {
 	var barStr = `<table class="data">`;
 	var rangeStr = `<table class="data">`;
 	
@@ -137,11 +137,11 @@ function updateOutput () {
 		barStr += `<tr>
 				<td class="text">` + texts[i] + `:</td>
 				<td class="number">` + stats[i] + `</td>
-				<td><div class="bar" style="width: ` + stats[i] + `px;"></div></td>
+				<td><div class="bar" style="width: ` + (stats[i] * 0.55) + `px;"></div></td>
 			</tr>`;
 		rangeStr += `<tr>
 				<td class="text">` + texts[i] + `: </td>
-				<td><input type="range" id="stat` + i + `" class="bar" oninput="statChanged();" onchange="statChanged();" min="0" max="` + maxBst + `" value="` + stats[i] + `"></td>
+				<td><input type="range" id="stat` + i + `" class="bar range" oninput="statChanged();" onchange="statChanged();" min="0" max="` + maxBst + `" value="` + stats[i] + `"></td>
 				<td class="number"><span id="label` + i + `"></span></td>
 			</tr>`;
 	}
