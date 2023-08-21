@@ -1,7 +1,6 @@
-const texts = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
-const statsCount = texts.length;
-const maxBst = 1530;
-
+var texts = ['HP', 'ATK', 'DEF', 'SPA', 'SPD', 'SPE'];
+var statsCount = texts.length;
+var maxBst = 255 * texts.length;
 var stats;
 
 window.onload = function () {
