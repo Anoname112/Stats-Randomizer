@@ -6,7 +6,7 @@ texts = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 statsCount = texts.length;
 inputChanged();
 ```
-
+<br /><br />
 Live Demo: https://anoname112.github.io/Stats-Randomizer/
 <br /><br />
 Screenshot:
