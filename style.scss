@@ -81,6 +81,14 @@ input[type=range] {
 	height: 10px;
 }
 
+.label {
+	border-color: rgba(255, 255, 255, 0.3);
+	background: transparent;
+	width: 32px;
+	padding: 0;
+	text-align: right;
+}
+
 .info {
 	cursor: default;
 	position: relative;

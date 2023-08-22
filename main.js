@@ -20,20 +20,40 @@ function getTotal () {
     return total;
 }
 
-function statChanged (sender) {
+function rangeChanged () {
 	document.getElementById('total').innerHTML = "";
 	
 	var total = 0;
 	for (var i = 0; i < statsCount; i++) {
-		var stat = parseInt(document.getElementById('stat' + i).value);
-		document.getElementById('label' + i).innerHTML = stat;
+		var stat = parseInt(document.getElementById('range' + i).value);
+		document.getElementById('label' + i).value = stat;
 		total += stat;
 	}
 	
 	document.getElementById('total').innerHTML = total;
 }
 
-function inputChanged (sender) {
+function labelChanged () {
+	document.getElementById('total').innerHTML = "";
+	
+	var total = 0;
+	for (var i = 0; i < statsCount; i++) {
+		var stat = document.getElementById('label' + i).value.length > 0 ? parseInt(document.getElementById('label' + i).value) : 0;
+		
+		if (stat > maxBst) {
+			document.getElementById('label' + i).value = maxBst;
+			labelChanged();
+			return;
+		}
+		
+		document.getElementById('range' + i).value = stat;
+		total += stat;
+	}
+	
+	document.getElementById('total').innerHTML = total;
+}
+
+function inputChanged () {
 	var bst = document.getElementById('bst').value;
 	var padding = document.getElementById('padding').value;
 	var rounding = parseInt(document.getElementById('rounding').value);
@@ -91,20 +111,22 @@ function inputChanged (sender) {
 		// Get priority stats
 		var assignedIndex = [];
 		var priorityIndex = [];
-		if (firstSecond < 1) {
-			switch (tendencies) {
-				case 'atkspe': priorityIndex.push(1); priorityIndex.push(5); break;
-				case 'spaspe': priorityIndex.push(3); priorityIndex.push(5); break;
-				case 'defspd': priorityIndex.push(2); priorityIndex.push(4); break;
-				default: break;
+		if (statsCount >= 6) {
+			if (firstSecond < 1) {
+				switch (tendencies) {
+					case 'atkspe': priorityIndex.push(1); priorityIndex.push(5); break;
+					case 'spaspe': priorityIndex.push(3); priorityIndex.push(5); break;
+					case 'defspd': priorityIndex.push(2); priorityIndex.push(4); break;
+					default: break;
+				}
 			}
-		}
-		else {
-			switch (tendencies) {
-				case 'atkspe': priorityIndex.push(5); priorityIndex.push(1); break;
-				case 'spaspe': priorityIndex.push(5); priorityIndex.push(3); break;
-				case 'defspd': priorityIndex.push(4); priorityIndex.push(2); break;
-				default: break;
+			else {
+				switch (tendencies) {
+					case 'atkspe': priorityIndex.push(5); priorityIndex.push(1); break;
+					case 'spaspe': priorityIndex.push(5); priorityIndex.push(3); break;
+					case 'defspd': priorityIndex.push(4); priorityIndex.push(2); break;
+					default: break;
+				}
 			}
 		}
 		
@@ -140,8 +162,8 @@ function updateResult () {
 			</tr>`;
 		rangeStr += `<tr>
 				<td class="text">` + texts[i] + `</td>
-				<td><input type="range" id="stat` + i + `" class="bar range" oninput="statChanged();" onchange="statChanged();" min="0" max="` + maxBst + `" value="` + stats[i] + `"></td>
-				<td class="number"><span id="label` + i + `"></span></td>
+				<td><input type="range" id="range` + i + `" class="bar" oninput="rangeChanged();" onchange="rangeChanged();" min="0" max="` + maxBst + `" value="` + stats[i] + `"></td>
+				<td class="number"><input type="text" id="label` + i + `" class="label" oninput="labelChanged();" onchange="labelChanged();" value="` + stats[i] + `" /></td>
 			</tr>`;
 	}
 	
@@ -153,11 +175,10 @@ function updateResult () {
 		</table>`;
 	rangeStr += `<tr>
 				<td class="text">BST</td>
-				<td><span id="total"></span></td>
+				<td><span id="total">` + getTotal() + `</span></td>
 			</tr>
 		</table>`;
 	
 	document.getElementById('output').innerHTML = outputStr;
 	document.getElementById('adjuster').innerHTML = rangeStr;
-	statChanged();
 }
