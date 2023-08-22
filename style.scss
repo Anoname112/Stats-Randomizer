@@ -1,20 +1,19 @@
-$sansSerif: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
+$sansSerif: "Segoe UI", "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
 $borderRadius: 4px;
 $backColor: #DADADA;
-$padding: 15px;
+$padding: 12px;
 $tooltipWidth: 100px;
 $fontSize: 13px;
 $infoColor: #FFFFFF;
 
-body {
-	margin: 0;
-	padding: 0;
+* {
+	font-family: $sansSerif;
 	font-size: $fontSize;
 }
 
-table {
-	font-family: $sansSerif;
-	font-size: $fontSize;
+body {
+	margin: 0;
+	padding: 0;
 }
 
 input[type=button]:hover {
@@ -33,8 +32,16 @@ input[type=range] {
 	gap: 10px;
 }
 
+#top {
+	background-color: $backColor;
+	padding: $padding;
+	width: auto;
+	text-align: center;
+	font-size: $fontSize + 3;
+	font-weight: bold;
+}
+
 #left {
-	float: left;
 	border-radius: $borderRadius;
 	background-color: $backColor;
 	padding: $padding;
@@ -42,7 +49,6 @@ input[type=range] {
 }
 
 #output, #adjuster {
-	float: left;
 	border-radius: $borderRadius;
 	background-color: $backColor;
     padding: $padding;
@@ -55,8 +61,6 @@ input[type=range] {
 #bst, #rounding, #tendencies {
 	padding: 0px 2px 1px 2px;
 	height: 23px;
-	font-family: $sansSerif;
-	font-size: $fontSize;
 }
 
 .data th {

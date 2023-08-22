@@ -1,12 +1,11 @@
-body {
-  margin: 0;
-  padding: 0;
+* {
+  font-family: "Segoe UI", "Tahoma", "Trebuchet MS", "Arial", "Helvetica";
   font-size: 13px;
 }
 
-table {
-  font-family: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
-  font-size: 13px;
+body {
+  margin: 0;
+  padding: 0;
 }
 
 input[type=button]:hover {
@@ -25,19 +24,26 @@ input[type=range] {
   gap: 10px;
 }
 
+#top {
+  background-color: #DADADA;
+  padding: 12px;
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 #left {
-  float: left;
   border-radius: 4px;
   background-color: #DADADA;
-  padding: 15px;
+  padding: 12px;
   width: 280px;
 }
 
 #output, #adjuster {
-  float: left;
   border-radius: 4px;
   background-color: #DADADA;
-  padding: 15px;
+  padding: 12px;
 }
 
 #bst, #padding {
@@ -47,8 +53,6 @@ input[type=range] {
 #bst, #rounding, #tendencies {
   padding: 0px 2px 1px 2px;
   height: 23px;
-  font-family: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
-  font-size: 13px;
 }
 
 .data th {
