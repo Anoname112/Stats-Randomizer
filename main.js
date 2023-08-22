@@ -98,14 +98,16 @@ function inputChanged () {
 		sortedStats[max] += diff;
 		
 		// Sort stats
-		for (var i = 0; i < sortedStats.length - 1; i++) {
-			for (var j = i + 1; j < sortedStats.length; j++) {
-				if (sortedStats[i] > sortedStats[j]) {
-					var temp = sortedStats[i];
-					sortedStats[i] = sortedStats[j];
-					sortedStats[j] = temp;
-				}
+		for (var i = 1; i < sortedStats.length; i++) {
+			var temp = sortedStats[i];
+			var j = i - 1;
+			
+			while (j >= 0 && sortedStats[j] > temp) {
+				sortedStats[j + 1] = sortedStats[j];
+				j--;
 			}
+			
+			sortedStats[j + 1] = temp;
 		}
 		
 		// Get priority stats
